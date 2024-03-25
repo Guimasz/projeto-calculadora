@@ -5,6 +5,7 @@ class Calculadora {
         this.ptDecimal = false;
         this.operador = '';
         this.numAnterior='0';
+        
     }
 
     display() {
@@ -40,6 +41,11 @@ function addNumber(dig) {
     mostrarDisplay();
 }
 
+function apagarDig(){
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, -1); 
+    mostrarDisplay();
+}
+
 
 function addOperator(op) {
     calculadora.operador = op;
@@ -65,8 +71,17 @@ function calcularResultado(){
         case '/':
             resultado = num1 / num2;
             break;
+        case '%':
+            resultado = num1 * num2 / 100;
+
+            break;
     }
     calculadora.numDisplay = resultado.toString();
+    mostrarDisplay();
+}
+
+function limparDisplay(){
+    calculadora.numDisplay = '0';
     mostrarDisplay();
 }
 
