@@ -23,7 +23,7 @@ body{
 
 
 .display{
-    
+    min-height: 55px;
     width: 85%;
     background-color: rgb(39, 71, 55);
     color: rgb(144, 238, 144, 0.7);
@@ -33,7 +33,7 @@ body{
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
     text-shadow: 2px 2px 8px #ffffff;
-    border: 8px solid rgb(12, 12, 12);
+    border: 8px solid   rgb(118, 156, 228);
     border-radius: 15px;
     box-shadow: inset 8px 12px 30px 3px rgba(255, 255, 255, 0.35);
 
@@ -52,7 +52,7 @@ body{
 
 .tecla, .tecla-esp{
     margin: 10px;
-    padding: 8px;
+    padding: 15px;
     background-color: rgb(212, 212, 212);
     color: rgb(29, 100, 233) ;
     font-size: 1em;
@@ -62,7 +62,7 @@ body{
 }
 
 .tecla-esp{
-    background-color: rgb(146, 177, 233);
+    background-color: rgb(182, 113, 151);
     color: rgb(255, 254, 254);
 }
 

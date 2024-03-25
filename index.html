@@ -5,41 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
 <div class="container-calc">
-        <div class="display">
-            0000000
-        </div>
+    <div class="display" id="display">
+        0
+    </div>
         <div class="keyboard">
-            <div class="tecla-esp" onclick="addOperator">C</div>
-            <div class="tecla-esp" onclick="addOperator">CLM</div>
+            <div class="tecla-esp" onclick="addOperator('C')">C</div>
+            <div class="tecla-esp" onclick="addOperator('CLM')">CLM</div>
             <div class="tecla-esp" onclick="addOperator">S/F</div>
             <div class="tecla-esp" onclick="addOperator">S/F</div>
-            <div class="tecla-esp" onclick="addOperator">RM</div>
-            <div class="tecla-esp" onclick="addOperator">M+</div>
-            <div class="tecla-esp" onclick="addOperator">M-</div>
-            <div class="tecla-esp" onclick="addOperator">/</div>
-            <div class="tecla" onclick="addNumber">7</div>
-            <div class="tecla" onclick="addNumber">8</div>  
-            <div class="tecla" onclick="addNumber">9</div>
-            <div class="tecla-esp" onclick="addOperator">x</div>
-            <div class="tecla" onclick="addNumber">4</div>
-            <div class="tecla" onclick="addNumber">5</div>
-            <div class="tecla" onclick="addNumber">6</div>
-            <div class="tecla-esp" onclick="addOperator">-</div>
-            <div class="tecla" onclick="addNumber">1</div>
-            <div class="tecla" onclick="addNumber">2</div>
-            <div class="tecla" onclick="addNumber">3</div>
-            <div class="tecla-esp" onclick="addOperator">+</div>
-            <div></div>
-            <div class="tecla" onclick="addNumber">0</div>
-            <div></div>            
-            
-
-            
-            <!-- Add more buttons here --> 
+            <div class="tecla-esp" onclick="addOperator('RM')">RM</div>
+            <div class="tecla-esp" onclick="addOperator('M+')">M+</div>
+            <div class="tecla-esp" onclick="addOperator('M-')">M-</div>
+            <div class="tecla-esp" onclick="addOperator('/')">/</div>
+            <div class="tecla" onclick="addNumber('7')">7</div>
+            <div class="tecla" onclick="addNumber('8')">8</div>  
+            <div class="tecla" onclick="addNumber('9')">9</div>
+            <div class="tecla-esp" onclick="addOperator('*')">x</div>
+            <div class="tecla" onclick="addNumber('4')">4</div>
+            <div class="tecla" onclick="addNumber('5')">5</div>
+            <div class="tecla" onclick="addNumber('6')">6</div>
+            <div class="tecla-esp" onclick="addOperator('-')">-</div>
+            <div class="tecla" onclick="addNumber('1')">1</div>
+            <div class="tecla" onclick="addNumber('2')">2</div>
+            <div class="tecla" onclick="addNumber('3')">3</div>
+            <div class="tecla-esp" onclick="addOperator('+')">+</div>
+            <div class="tecla" onclick="addNumber('.')">.</div>
+            <div class="tecla" onclick="addNumber('0')">0</div>
+            <div class="tecla-esp" onclick="addOperator('%')">%</div>
+            <div class="tecla-esp" onclick="calcularResultado()">=</div>           
         </div>
 </div>
 <script src="script.js"></script>
