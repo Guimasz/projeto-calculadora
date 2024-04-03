@@ -42,7 +42,8 @@ function addNumber(dig) {
 }
 
 function apagarDig(){
-    calculadora.numDisplay = calculadora.numDisplay.slice(0, -1); 
+    let count = calculadora.numDisplay.split("");
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, -count); 
     mostrarDisplay();
 }
 
