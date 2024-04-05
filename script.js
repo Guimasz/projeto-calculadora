@@ -4,7 +4,11 @@ class Calculadora {
         this.numDisplay = '0';
         this.ptDecimal = false;
         this.operador = '';
-        this.numAnterior='0';
+        this.numAnterior='';
+        this.estadoErro = false;
+        this.memoria = 0;
+        
+
         
     }
 
@@ -13,16 +17,16 @@ class Calculadora {
     }
 
     recebeDigito(dig) {
+        if (this.estadoErro) return;
         if (dig.length != 1) return;
         if (this.numDisplay.length == 10) return;
-        // PROVISÓRIO
         if ((dig < '0' || dig > '9') && dig != '.') return;
-        if (this.numDisplay == '0') {
-            this.numDisplay = ' ';    
+            if (this.numDisplay == '0') {
+                this.numDisplay = dig == '.' ? '0.' : dig;
+            } else {
+                this.numDisplay += dig;
+            }      
         }
-       
-        this.numDisplay += dig;
-    }
     
     
 }
@@ -49,13 +53,18 @@ function apagarDig(){
 
 
 function addOperator(op) {
+    if (calculadora.operador != '') {
+        calcularResultado();
+    }   
+    if (this.estadoErro) return;
     calculadora.operador = op;
     calculadora.numAnterior = calculadora.numDisplay;
-    calculadora.numDisplay = '';
-    mostrarDisplay();
+    
+    limparDisplay();
 }
 
 function calcularResultado(){
+    if (calculadora.operador == '') return;
     let resultado;
     const num1 = parseFloat(calculadora.numAnterior);
     const num2 = parseFloat(calculadora.numDisplay);
@@ -77,12 +86,15 @@ function calcularResultado(){
 
             break;
     }
-    calculadora.numDisplay = resultado.toString();
+    calculadora.operador = '';
+    calculadora.ptDecimal = false;
+    calculadora.numAnterior = '';
+    calculadora.numDisplay = String(resultado).slice(0, 10);
     mostrarDisplay();
 }
 
 function limparDisplay(){
-    calculadora.numDisplay = '0';
+    calculadora.numDisplay = '';
     mostrarDisplay();
 }
 
