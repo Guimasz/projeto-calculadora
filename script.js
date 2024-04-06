@@ -98,8 +98,30 @@ function limparDisplay(){
     mostrarDisplay();
 }
 
+function teclaMmais() {
+    
+    calculadora.memoria += parseFloat(calculadora.numDisplay);
+    calculadora.numDisplay = calculadora.memoria;
+    mostrarDisplay();
+}
 
+function teclaMmenos() {
 
+    calculadora.memoria -= parseFloat(calculadora.numDisplay);
+    calculadora.numDisplay = calculadora.memoria;
+    mostrarDisplay();
+}
+
+function teclaCLM() {
+    
+    calculadora.memoria = 0;
+}
+
+function teclaRM() {
+   
+    calculadora.numDisplay = calculadora.memoria;
+    mostrarDisplay();
+}
 
 
 
