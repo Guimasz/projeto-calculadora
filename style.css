@@ -84,3 +84,14 @@ body{
 .tecla:hover , .tecla-esp:hover{
    cursor: pointer;
 }
+
+#power{
+    margin: 10px;
+    padding: 15px;
+    background-color:  rgb(118, 156, 228);
+    color: rgb(255, 254, 254);
+    font-size: 1em;
+    border-radius: 15px;
+    box-shadow: 2px 2px 3px 3px rgb(0, 0, 0, 0.4);
+    transition: all 0.1s ease-in-out; /* Add transition for smooth effect */
+}
