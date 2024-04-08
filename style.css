@@ -81,3 +81,6 @@ body{
     font-weight: 700;
     box-shadow: 2px 2px 3px 3px rgb(0, 0, 0, 0.4);
 }
+.tecla:hover , .tecla-esp:hover{
+   cursor: pointer;
+}
