@@ -121,8 +121,7 @@ function calcularResultado() {
             resultado = num1 / num2;
             break;
         case '%':
-            resultado = num1 * num2 / 100;
-
+            resultado = num1 * (num2 / 100);
             break;
     }
 
@@ -132,6 +131,7 @@ function calcularResultado() {
     calculadora.numDisplay = String(resultado).slice(0, 10);
     mostrarDisplay();
 }
+
 
 function limparDisplay() {
     calculadora.numDisplay = '';
