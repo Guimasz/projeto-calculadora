@@ -123,8 +123,24 @@ function calcularResultado() {
         case '%':
             resultado = num1 * (num2 / 100);
             break;
-    }
+        }
 
+    calculadora.operador = '';
+    calculadora.ptDecimal = false;
+    calculadora.numAnterior = '';
+    calculadora.numDisplay = String(resultado).slice(0, 10);
+    mostrarDisplay();
+}
+
+function raizOperator(){
+    if (calculadora.estadoLigada == false) return;
+    if (calculadora.estadoErro) return;
+    let resultado;
+    const num2 = parseFloat(calculadora.numDisplay);
+
+    resultado = Math.sqrt(num2);
+
+    
     calculadora.operador = '';
     calculadora.ptDecimal = false;
     calculadora.numAnterior = '';
