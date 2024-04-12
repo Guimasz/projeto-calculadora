@@ -132,6 +132,32 @@ function calcularResultado() {
     mostrarDisplay();
 }
 
+function raizOperator(){
+    if (calculadora.estadoLigada == false) return;
+    if (calculadora.estadoErro) return;
+    
+    let resultado;
+    const num1 = parseFloat(calculadora.numAnterior);
+    const num2 = parseFloat(calculadora.numDisplay);
+
+    if (isNaN(num1)) {
+        resultado = Math.sqrt(num2);
+    }else if(calculadora.operador == '*'){
+        resultado = Math.sqrt(num2);
+        resultado *= num1;
+    } 
+    else {
+        resultado = num1 + Math.sqrt(num2);
+    }
+
+
+    calculadora.operador = '';
+    calculadora.ptDecimal = false;
+    calculadora.numAnterior = '';
+    calculadora.numDisplay = String(resultado).slice(0, 10);
+    mostrarDisplay();
+}
+
 
 function limparDisplay() {
     calculadora.numDisplay = '';
