@@ -132,6 +132,17 @@ function calcularResultado() {
     mostrarDisplay();
 }
 
+function quadrado(){
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
+    const num = parseFloat(calculadora.numDisplay);
+    if (isNaN(num)) return;
+
+    calculadora.numDisplay = (num*num).toString();
+
+
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10); 
+    mostrarDisplay();
+}
 
 function raizOperator() {
     if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
