@@ -133,14 +133,20 @@ function calcularResultado() {
 }
 
 
+function raizOperator() {
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
+    
+    const num = parseFloat(calculadora.numDisplay);
+    if (isNaN(num)) return;
 
-function raizOperator(){
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
-    calculadora.numDisplay = Math.sqrt( parseFloat(calculadora.numDisplay));
-    mostrarDisplay()
+    calculadora.numDisplay = Math.sqrt(num).toString();
 
+
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10); 
+    mostrarDisplay();
+    
 }
+
 
 
 function inverso() {
