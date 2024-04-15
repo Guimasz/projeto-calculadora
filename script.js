@@ -167,7 +167,8 @@ function inverso() {
         return;
     }
     calculadora.numDisplay = 1 / parseFloat(calculadora.numDisplay);
-
+    calculadora.numDisplay = calculadora.numDisplay.toString();
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10); 
 
     mostrarDisplay();
 }
