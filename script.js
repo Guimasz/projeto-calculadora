@@ -167,7 +167,9 @@ function inverso() {
         return;
     }
     calculadora.numDisplay = 1 / parseFloat(calculadora.numDisplay);
-
+    calculadora.numDisplay = calculadora.numDisplay.toString();
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10); 
+    
 
     mostrarDisplay();
 }
@@ -221,8 +223,7 @@ function teclaRM() {
 function cleanDisplay(){
     if (calculadora.estadoLigada == false) return;
     if (calculadora.estadoErro) return;
-    let count = calculadora.numDisplay.split("");
-    calculadora.numDisplay = calculadora.numDisplay.slice(0, -count);
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, -1);
     
     mostrarDisplay();
 
