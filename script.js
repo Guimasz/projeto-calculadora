@@ -59,27 +59,25 @@ function on_off() {
         calculadora.memoria = 0;
     } else {
         document.getElementById('display').innerHTML = '';
-        calculadora.numDisplay = '';
+        calculadora.numDisplay = '0';
     }
 }
 
 function mostrarDisplay() {
     if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+
     document.getElementById('display').innerHTML = calculadora.display();
 }
 
 function addNumber(dig) {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     calculadora.recebeDigito(dig);
     mostrarDisplay();
 }
 
 
 function addOperator(op) {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     if (calculadora.operador !== '') {
         calcularResultado();
     }
@@ -87,12 +85,11 @@ function addOperator(op) {
     calculadora.operador = op;
     calculadora.numAnterior = calculadora.numDisplay;
 
-   cleanDisplay();
+    cleanDisplay();
 }
 
 function calcularResultado() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     if (calculadora.operador == '') return;
     let resultado;
     const num1 = parseFloat(calculadora.numAnterior);
@@ -119,7 +116,7 @@ function calcularResultado() {
         case '%':
             resultado = num1 * (num2 / 100);
             break;
-        }
+    }
 
     calculadora.operador = '';
     calculadora.ptDecimal = false;
@@ -128,38 +125,36 @@ function calcularResultado() {
     mostrarDisplay();
 }
 
-function quadrado(){
+function quadrado() {
     if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     const num = parseFloat(calculadora.numDisplay);
     if (isNaN(num)) return;
 
-    calculadora.numDisplay = (num*num).toString();
+    calculadora.numDisplay = (num * num).toString();
 
 
-    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10); 
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10);
     mostrarDisplay();
 }
 
 function raizOperator() {
     if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
-    
+
     const num = parseFloat(calculadora.numDisplay);
     if (isNaN(num)) return;
 
     calculadora.numDisplay = Math.sqrt(num).toString();
 
 
-    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10); 
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10);
     mostrarDisplay();
-    
+
 }
 
 
 
 function inverso() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
-    
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     if (calculadora.numDisplay == '0') {
         calculadora.estadoErro = true;
         calculadora.numDisplay = 'Erro';
@@ -168,70 +163,63 @@ function inverso() {
     }
     calculadora.numDisplay = 1 / parseFloat(calculadora.numDisplay);
     calculadora.numDisplay = calculadora.numDisplay.toString();
-    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10); 
+    calculadora.numDisplay = calculadora.numDisplay.slice(0, 10);
 
     mostrarDisplay();
 }
 
 
 function cleanAll() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
-            calculadora.numDisplay = '';
-            calculadora.ptDecimal = false;
-            calculadora.operador = '';
-            calculadora.numAnterior = '';
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
+    calculadora.numDisplay = 0;
+    calculadora.ptDecimal = false;
+    calculadora.operador = '';
+    calculadora.numAnterior = 0;
     mostrarDisplay();
 }
 
 function teclaMmais() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     if (calculadora.numDisplay == '') {
-        calculadora.estadoErro = true;
-        calculadora.numDisplay = 'Erro';
-        mostrarDisplay();
-        return;
+        calculadora.numDisplay += 0;
     }
     calculadora.memoria += parseFloat(calculadora.numDisplay);
-    calculadora.numDisplay = calculadora.memoria;
     mostrarDisplay();
+    
 }
-
 function teclaMmenos() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
+
+    if (calculadora.numDisplay == '') {
+        calculadora.memoria -= 0;
+        mostrarDisplay();
+    }
     calculadora.memoria -= parseFloat(calculadora.numDisplay);
-    calculadora.numDisplay = calculadora.memoria;
-    mostrarDisplay();
+   
+    cleanDisplay();
+
 }
 
 function teclaCLM() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     calculadora.memoria = 0;
 }
 
 function teclaRM() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     calculadora.numDisplay = calculadora.memoria;
     mostrarDisplay();
 }
 
-function cleanDisplay(){
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
-    let count = calculadora.numDisplay.split("");
-    calculadora.numDisplay = calculadora.numDisplay.slice(0, -count);
-    
+function cleanDisplay() {
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
+    let count = calculadora.numDisplay.split(0);
+    calculadora.numDisplay = 0;
     mostrarDisplay();
-
 }
 
 function switchSignal() {
-    if (calculadora.estadoLigada == false) return;
-    if (calculadora.estadoErro) return;
+    if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     calculadora.numDisplay = -parseFloat(calculadora.numDisplay);
     mostrarDisplay();
 }
