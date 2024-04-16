@@ -91,6 +91,17 @@ function addOperator(op) {
 function calcularResultado() {
     if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
     if (calculadora.operador == '') return;
+
+    if (calculadora.numDisplay === '') {
+        if (calculadora.numAnterior !== '') {
+            calculadora.numDisplay = calculadora.numAnterior;
+            mostrarDisplay();
+            return;
+        } else {
+            return;
+        }
+    }
+    
     let resultado;
     const num1 = parseFloat(calculadora.numAnterior);
     const num2 = parseFloat(calculadora.numDisplay);
