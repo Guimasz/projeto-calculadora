@@ -191,23 +191,18 @@ function cleanAll() {
 
 function teclaMmais() {
     if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
-    if (calculadora.numDisplay == '') {
-        calculadora.numDisplay += 0;
-    }
+   
     calculadora.memoria += parseFloat(calculadora.numDisplay);
-    mostrarDisplay();
+  
     
 }
 function teclaMmenos() {
     if (calculadora.estadoLigada === false || calculadora.estadoErro) return;
 
-    if (calculadora.numDisplay == '') {
-        calculadora.memoria -= 0;
-        mostrarDisplay();
-    }
+    
     calculadora.memoria -= parseFloat(calculadora.numDisplay);
    
-    cleanDisplay();
+    
 
 }
 
@@ -234,3 +229,65 @@ function switchSignal() {
     calculadora.numDisplay = -parseFloat(calculadora.numDisplay);
     mostrarDisplay();
 }
+
+//-----------------------------------------------------------------
+
+    function handleKeyPress(event) {
+        const isShift = event.shiftKey;
+    
+        if (isShift) {
+            // Lidar com teclas pressionadas junto com Shift
+            if (event.key === 'M') {
+                teclaMmenos();
+            } else if (event.key === 'C') {
+                teclaCLM();
+            } else if (event.key === '+') {
+                addOperator('+');
+            } else if (event.key === '-') {
+                addOperator('-');
+            } else if (event.key === '*') {
+                addOperator('*');
+            } else if (event.key === '/') {
+                addOperator('/');
+            } else if (event.key === '%') {
+                addOperator('%');
+            }        
+        } else {
+            // Lidar com teclas pressionadas sem Shift
+            if (event.key >= '0' && event.key <= '9') {
+                addNumber(event.key);
+            } else if (event.key === '.') {
+                addNumber('.');
+            } else if (event.key === '+') {
+                addOperator('+');
+            } else if (event.key === '-') {
+                addOperator('-');
+            } else if (event.key === '*') {
+                addOperator('*');
+            } else if (event.key === '/') {
+                addOperator('/');
+            } else if (event.key === '%') {
+                addOperator('%');
+            } else if (event.key === 'Enter') {
+                calcularResultado();
+            } else if (event.key === 'Backspace') {
+                cleanDisplay();
+            } else if (event.key === 'Delete') {
+                cleanAll();
+            } else if (event.key === 'm') {
+                teclaMmais();
+            } else if (event.key === 'z') {
+                switchSignal();
+            } else if (event.key === 'r') {
+                teclaRM();
+            } else if (event.key === 'q') {
+                quadrado();
+            } else if (event.key === 'i') {
+                inverso();
+            } else if (event.key === 's') {
+                raizOperator();
+            }
+        }
+    }
+    
+    document.addEventListener('keydown', handleKeyPress);

@@ -57,6 +57,7 @@ body{
     background-color: rgb(212, 212, 212);
     color: rgb(29, 100, 233) ;
     font-size: 1em;
+    font-family: 'Roboto', sans-serif; /* Alterado para 'Roboto' */
     border-radius: 15px;
     box-shadow: 2px 2px 3px 3px rgb(0, 0, 0, 0.4);
     transition: all 0.1s ease-in-out; /* Add transition for smooth effect */

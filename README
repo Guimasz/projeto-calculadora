@@ -1,0 +1,24 @@
+Calculadora JavaScript com Suporte para Teclado
+Esta calculadora foi desenvolvida em JavaScript e possui suporte para entrada de teclado, permitindo uma experiência mais intuitiva e rápida para o usuário.
+
+Instruções de Uso
+Teclas Numéricas e Operadores
+Teclas Numéricas: Pressione as teclas de 0 a 9 para inserir números no visor da calculadora.
+Tecla Ponto (.): Utilize a tecla '.' para adicionar um ponto decimal em números fracionários.
+Teclas de Operadores Matemáticos:
+Adição (+): Pressione a tecla '+' para adicionar.
+Subtração (-): Pressione a tecla '-' para subtrair.
+Multiplicação (): Pressione a tecla '' para multiplicar.
+Divisão (/): Pressione a tecla '/' para dividir.
+Porcentagem (%): Pressione a tecla '%' para calcular a porcentagem.
+Teclas Especiais
+Tecla Enter (Return): Pressione a tecla 'Enter' para calcular o resultado da expressão.
+Tecla Backspace: Utilize a tecla 'Backspace' para limpar o display (CE).
+Tecla Delete: Pressione a tecla 'Delete' para limpar tudo, menos a memória (C).
+Tecla 'm': Pressione a tecla 'm' para adicionar o número atual à memória.
+Tecla Shift + 'm': Pressione a tecla 'Shift' e 'm' simultaneamente para remover o número da memória.
+Tecla 'z': Pressione a tecla 'z' para alternar entre adicionar ou subtrair o valor atual (alternar sinal).
+Tecla 'r': Pressione a tecla 'r' para ler o valor armazenado na memória.
+Tecla 'q': Pressione a tecla 'q' para calcular o quadrado do número exibido.
+Tecla 's': Pressione a tecla 's' para calcular a raiz quadrada do número exibido.
+Tecla 'i': Pressione a tecla 'i' para calcular o inverso do número exibido.
